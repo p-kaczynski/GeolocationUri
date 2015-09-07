@@ -6,9 +6,9 @@ namespace Geolocation
 {
     public class GeolocationVisitor : Visitor
     {
-        private readonly Geolocation _location;
+        private readonly GeolocationUri _location;
 
-        public GeolocationVisitor(Geolocation location)
+        public GeolocationVisitor(GeolocationUri location)
         {
             _location = location;
         }

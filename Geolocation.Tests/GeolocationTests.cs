@@ -4,13 +4,13 @@ using Xunit;
 
 namespace Geolocation.Tests
 {
-    public class GeolocationTests
+    public class GeolocationDataTests
     {
         [Theory]
         [MemberData("PositiveCases")]
         public void Geolocation_Parse_ParsesCorrectly(string input, decimal latitude, decimal longitude, decimal? altitude, string crs, decimal? uncertainty)
         {
-            var geo = Geolocation.Parse(input);
+            var geo = GeolocationUri.Parse(input);
             geo.Longitude.ShouldEqual(longitude);
             geo.Latitude.ShouldEqual(latitude);
             geo.Altitude.ShouldEqual(altitude);
@@ -24,7 +24,7 @@ namespace Geolocation.Tests
         [InlineData("geo:-48.198634,-16.371648,23.544;crs=wgs84;u=40;key", "key", null)]
         public void Geolocation_Parse_ParsesParameters(string input, string key, string value)
         {
-            var geo = Geolocation.Parse(input);
+            var geo = GeolocationUri.Parse(input);
             geo.Parameters.ContainsKey(key).ShouldBeTrue();
             geo.Parameters[key].ShouldEqual(value);
         }
@@ -33,25 +33,25 @@ namespace Geolocation.Tests
         {
             get
             {
-                yield return new object[] { "geo:-48.198634,-16.371648,23.544;crs=wgs84;u=40", -48.198634m, -16.371648m, 23.544m, "wgs84", 40m };
+                yield return new object[] { "geo:-48.198634,-16.371648,23.544;crs=abc;u=40", -48.198634m, -16.371648m, 23.544m, "abc", 40m };
                 yield return new object[] { "geo:48.198634,-16.371648,23.544;crs=wgs84;u=40", 48.198634m, -16.371648m, 23.544m, "wgs84", 40m };
                 yield return new object[] { "geo:-48.198634,16.371648,23.544;crs=wgs84;u=40", -48.198634m, 16.371648m, 23.544m, "wgs84", 40m };
                 yield return new object[] { "geo:48.198634,16.371648,23.544;crs=wgs84;u=40", 48.198634m, 16.371648m, 23.544m, "wgs84", 40m };
-                yield return new object[] { "geo:-48.198634,-16.371648,23.544;u=40", -48.198634m, -16.371648m, 23.544m, null, 40m };
+                yield return new object[] { "geo:-48.198634,-16.371648,23.544;u=40", -48.198634m, -16.371648m, 23.544m, "wgs84", 40m };
                 yield return new object[] { "geo:-48.198634,-16.371648,23.544;crs=wgs84", -48.198634m, -16.371648m, 23.544m, "wgs84", null };
                 // reverse order of params violates the RFC5870 specs - possibly an error
                 //yield return new object[] { "geo:-48.198634,-16.371648,23.544;u=40;crs=wgs84", -48.198634m, -16.371648m, 23.544m, "wgs84", 40m };
-                yield return new object[] { "geo:-48.198634,-16.371648,23.544", -48.198634m, -16.371648m, 23.544m, null, null };
+                yield return new object[] { "geo:-48.198634,-16.371648,23.544", -48.198634m, -16.371648m, 23.544m, "wgs84", null };
 
-                yield return new object[] { "geo:-48.198634,-16.371648;crs=wgs84;u=40", -48.198634m, -16.371648m, null, "wgs84", 40m };
+                yield return new object[] { "geo:-48.198634,-16.371648;crs=abc;u=40", -48.198634m, -16.371648m, null, "abc", 40m };
                 yield return new object[] { "geo:48.198634,-16.371648;crs=wgs84;u=40", 48.198634m, -16.371648m, null, "wgs84", 40m };
                 yield return new object[] { "geo:-48.198634,16.371648;crs=wgs84;u=40", -48.198634m, 16.371648m, null, "wgs84", 40m };
                 yield return new object[] { "geo:48.198634,16.371648;crs=wgs84;u=40", 48.198634m, 16.371648m, null, "wgs84", 40m };
-                yield return new object[] { "geo:-48.198634,-16.371648;u=40", -48.198634m, -16.371648m, null, null, 40m };
+                yield return new object[] { "geo:-48.198634,-16.371648;u=40", -48.198634m, -16.371648m, null, "wgs84", 40m };
                 yield return new object[] { "geo:-48.198634,-16.371648;crs=wgs84", -48.198634m, -16.371648m, null, "wgs84", null };
                 // reverse order of params violates the RFC5870 specs - possibly an error
                 //yield return new object[] { "geo:-48.198634,-16.371648;u=40;crs=wgs84", -48.198634m, -16.371648m, null, "wgs84", 40m };
-                yield return new object[] { "geo:-48.198634,-16.371648", -48.198634m, -16.371648m, null, null, null };
+                yield return new object[] { "geo:-48.198634,-16.371648", -48.198634m, -16.371648m, null, "wgs84", null };
             }
         }
     }
