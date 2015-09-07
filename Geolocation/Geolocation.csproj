@@ -36,8 +36,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeolocationData.cs" />
-    <Compile Include="ABNF\Displayer.cs" />
+    <Compile Include="GeolocationUri.cs" />
     <Compile Include="ABNF\Parser.cs" />
     <Compile Include="ABNF\ParserAlternative.cs" />
     <Compile Include="ABNF\ParserContext.cs" />
@@ -75,7 +74,6 @@
     <Compile Include="ABNF\Terminal_NumericValue.cs" />
     <Compile Include="ABNF\Terminal_StringValue.cs" />
     <Compile Include="ABNF\Visitor.cs" />
-    <Compile Include="ABNF\XmlDisplayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

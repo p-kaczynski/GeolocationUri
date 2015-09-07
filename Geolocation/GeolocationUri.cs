@@ -100,7 +100,7 @@ namespace Geolocation
         {
             var geolocation = new GeolocationUri();
 
-            if (String.IsNullOrWhiteSpace(value))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("Header value cannot be null or empty", "value");
 
             var geo = Parser.Parse(RootRuleName, value);

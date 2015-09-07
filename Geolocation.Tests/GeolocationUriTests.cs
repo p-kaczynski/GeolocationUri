@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Geolocation.Tests
 {
-    public class GeolocationDataTests
+    public class GeolocationUriTests
     {
         [Theory]
         [MemberData("PositiveCases")]
@@ -51,7 +51,7 @@ namespace Geolocation.Tests
                 yield return new object[] { "geo:-48.198634,-16.371648;crs=wgs84", -48.198634m, -16.371648m, null, "wgs84", null };
                 // reverse order of params violates the RFC5870 specs - possibly an error
                 //yield return new object[] { "geo:-48.198634,-16.371648;u=40;crs=wgs84", -48.198634m, -16.371648m, null, "wgs84", 40m };
-                yield return new object[] { "geo:-48.198634,-16.371648", -48.198634m, -16.371648m, null, "wgs84", null };
+                yield return new object[] {"geo:51.5034622,-0.0958827", 51.5034622m, -0.0958827m, null, "wgs84", null};
             }
         }
     }
