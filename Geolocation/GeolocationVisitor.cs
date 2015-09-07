@@ -60,7 +60,7 @@ namespace Geolocation
         public object Visit(Rule_coord_c rule)
         {
             _location.Altitude = decimal.Parse(rule.spelling);
-            return false
+            return false;
         }
 
         public object Visit(Rule_p rule)

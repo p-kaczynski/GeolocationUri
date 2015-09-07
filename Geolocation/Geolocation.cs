@@ -17,7 +17,7 @@ namespace Geolocation
         public decimal Latitude { get; internal set; }
         public decimal? Altitude { get; internal set; }
         public string CoordinateReferenceSystemId { get; internal set; }
-        public decimal Uncertainty { get; internal set; }
+        public decimal? Uncertainty { get; internal set; }
 
         public IReadOnlyDictionary<string, string> Parameters
         {

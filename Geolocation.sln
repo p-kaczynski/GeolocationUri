@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocation", "Geolocation\Geolocation.csproj", "{EA270BA5-E738-4918-9A2C-ABAE0F0811B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocation.Tests", "Geolocation.Tests\Geolocation.Tests.csproj", "{E01020B7-FC76-4B95-8D80-314D74BF4397}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EA270BA5-E738-4918-9A2C-ABAE0F0811B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA270BA5-E738-4918-9A2C-ABAE0F0811B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA270BA5-E738-4918-9A2C-ABAE0F0811B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E01020B7-FC76-4B95-8D80-314D74BF4397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E01020B7-FC76-4B95-8D80-314D74BF4397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E01020B7-FC76-4B95-8D80-314D74BF4397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E01020B7-FC76-4B95-8D80-314D74BF4397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
