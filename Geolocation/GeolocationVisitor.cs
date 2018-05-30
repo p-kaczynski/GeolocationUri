@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Geolocation.ABNF;
 
 namespace Geolocation
@@ -47,19 +48,19 @@ namespace Geolocation
 
         public object Visit(Rule_coord_a rule)
         {
-            _location.Latitude = decimal.Parse(rule.spelling);
+            _location.Latitude = decimal.Parse(rule.spelling, CultureInfo.InvariantCulture);
             return false;
         }
 
         public object Visit(Rule_coord_b rule)
         {
-            _location.Longitude = decimal.Parse(rule.spelling);
+            _location.Longitude = decimal.Parse(rule.spelling, CultureInfo.InvariantCulture);
             return false;
         }
 
         public object Visit(Rule_coord_c rule)
         {
-            _location.Altitude = decimal.Parse(rule.spelling);
+            _location.Altitude = decimal.Parse(rule.spelling, CultureInfo.InvariantCulture);
             return false;
         }
 

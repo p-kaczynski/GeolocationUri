@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Geolocation.ABNF;
 
@@ -60,14 +61,14 @@ namespace Geolocation
             var sb = new StringBuilder();
             sb.Append(Schema);
             sb.Append(':');
-            sb.Append(Latitude);
+            sb.Append(Latitude.ToString(CultureInfo.InvariantCulture));
             sb.Append(',');
-            sb.Append(Longitude);
+            sb.Append(Longitude.ToString(CultureInfo.InvariantCulture));
 
             if (Altitude.HasValue)
             {
                 sb.Append(',');
-                sb.Append(Altitude.Value);
+                sb.Append(Altitude.Value.ToString(CultureInfo.InvariantCulture));
             }
 
             sb.Append(';');
